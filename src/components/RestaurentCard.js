@@ -1,6 +1,9 @@
 import { CDN_LINK } from "../utils/common";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const RestaurentCard = (props) => {
   const { resData } = props;
+  const { loggedinUser } = useContext(UserContext);
   return (
     <div className="w-[250px] h-[400px] m-2 hover:scale-95">
       <img
@@ -17,6 +20,7 @@ const RestaurentCard = (props) => {
           <span className="rating">★{resData.info.avgRating} Stars</span>
           <h5 className="time py-1">{resData.info.sla.deliveryTime} MINS</h5>
           <h5 className="costForTwo py-1">{resData.info.costForTwo}</h5>
+          <h5>{loggedinUser}</h5>
         </div>
       </div>
     </div>

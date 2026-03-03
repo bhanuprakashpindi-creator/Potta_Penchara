@@ -2,32 +2,23 @@ import RestaurentCard, { withPromotedRestaurant } from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantCard from "../utils/useRestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Body = () => {
   const [ListRestuarent, setListRestuarent] = useState([]);
   const [filteredRestuarent, setFilteredRestuarent] = useState([]);
   const [searchText, setSearchText] = useState("");
   const onlineStatus = useOnlineStatus();
   const RestaurantPromoted = withPromotedRestaurant(RestaurentCard);
-  // const fetchData = async () => {
-  //   const data = await fetch(
-  //   );
-
-  //   const json = await data.json();
-
-  //   const restaurants =
-  //     json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
   const restaurant = useRestaurantCard(RestaurentCard);
   useEffect(() => {
     setListRestuarent(restaurant);
     setFilteredRestuarent(restaurant);
   }, [restaurant]);
-  // };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  const { loggedinUser, setUserName } = useContext(UserContext);
 
   if (ListRestuarent.length === 0) {
     return <Shimmer />;
@@ -41,6 +32,7 @@ const Body = () => {
         </h1>
       </div>
     );
+
   return (
     <div className="body">
       <div className="flex">
@@ -73,6 +65,13 @@ const Body = () => {
           }}>
           Top Restaurants
         </button>
+        <div className="m-2 self-center border">
+          <input
+            type="text p-1"
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}></input>
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-3 ">
