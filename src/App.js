@@ -13,6 +13,7 @@ import Loginpage from "./components/Loginpage";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import Store from "./utils/Store";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -72,6 +73,10 @@ const approuter = createBrowserRouter([
       {
         path: "/login",
         element: <Loginpage />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

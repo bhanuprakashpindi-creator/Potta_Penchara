@@ -37,7 +37,9 @@ const Header = () => {
               Grocery
             </Link>
           </li>
-          <li>🛒-({cart.length} items)</li>
+          <li>
+            <Link to="/cart">🛒-({cart.length} items)</Link>
+          </li>
           <li>{loggedinUser}</li>
           <button
             className="border-2 bg-green-200"

@@ -1,13 +1,23 @@
 import { addItems } from "../StoreSlices/CartSlice";
 import { CDN_LINK, IMG_CDN_LINK } from "../utils/common";
 import { useDispatch } from "react-redux";
-const ItemList = ({ items }) => {
+const ItemList = ({ items, isAdd }) => {
   console.log(items);
-
   const dispatch = useDispatch();
-  const handelerAddItems = () => {
-    dispatch(addItems("Pizza"));
+  const handelerAddItems = (item) => {
+    dispatch(addItems(item));
   };
+  if (items.length === 0) {
+    return (
+      <div className="font-bold text-2xl">
+        <h1>
+          {" "}
+          Opps! Looks Like The Cart Is Empty . Please add The Items Into Cart
+          Before CheckOut
+        </h1>
+      </div>
+    );
+  }
   return (
     <div>
       {items.map((item) => (
@@ -28,11 +38,13 @@ const ItemList = ({ items }) => {
           </div>
           <div className="w-3/12 ">
             <div className="absolute">
-              <button
-                className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg hover: cursor-pointer"
-                onClick={() => handelerAddItems(item)}>
-                Add+
-              </button>
+              {isAdd && (
+                <button
+                  className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg hover: cursor-pointer"
+                  onClick={() => handelerAddItems(item)}>
+                  Add+
+                </button>
+              )}
             </div>
             <img src={IMG_CDN_LINK + item?.card?.info?.imageId} />
           </div>

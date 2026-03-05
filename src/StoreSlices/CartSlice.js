@@ -9,6 +9,7 @@ const CartSlice = createSlice({
     addItems: (state, action) => {
       //Mutating the state(modifing state directly)
       state.items.push(action.payload);
+      console.log(state.items);
     },
     clearCart: (state, action) => {
       state.items.length = 0; //[]
