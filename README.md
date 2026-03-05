@@ -1,2 +1,2 @@
 # Potta_Penchara
-it is an clone of swiggy
+it is a clone of swiggy
