@@ -5,7 +5,7 @@ const RestaurantCategory = ({ data, showItems, useShowIndex }) => {
     // setShowItems(!showItems);
     useShowIndex();
   };
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <div className="bg-gray-100 mx-auto my-4 shadow-lg p-4 w-6/12 m-auto ">

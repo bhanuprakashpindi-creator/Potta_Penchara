@@ -5,7 +5,9 @@ const RestaurentCard = (props) => {
   const { resData } = props;
   const { loggedinUser } = useContext(UserContext);
   return (
-    <div className="w-[250px] h-[400px] m-2 hover:scale-95">
+    <div
+      data-testid="itemCard"
+      className="w-[250px] h-[400px] m-2 hover:scale-95">
       <img
         className="w-[250px] h-[175px] rounded-4xl "
         alt="Rest img"

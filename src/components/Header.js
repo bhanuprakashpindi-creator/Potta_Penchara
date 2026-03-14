@@ -40,7 +40,7 @@ const Header = () => {
           <li>
             <Link to="/cart">🛒-({cart.length} items)</Link>
           </li>
-          <li>{loggedinUser}</li>
+          <li data-testid="userName2">{loggedinUser}</li>
           <button
             className="border-2 bg-green-200"
             onClick={() => {

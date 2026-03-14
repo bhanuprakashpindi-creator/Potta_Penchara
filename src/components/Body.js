@@ -38,6 +38,7 @@ const Body = () => {
       <div className="flex">
         <div className="m-2 p-2  self-center">
           <input
+            data-testid="search"
             type="text"
             className="border-2"
             value={searchText}
@@ -59,7 +60,7 @@ const Body = () => {
           className="m-5  border-2 bg-blue-300"
           onClick={() => {
             const filteredList = ListRestuarent.filter(
-              (res) => res.info.avgRating > 4,
+              (res) => res.info.avgRating > 4.3,
             );
             setFilteredRestuarent(filteredList);
           }}>
@@ -67,6 +68,7 @@ const Body = () => {
         </button>
         <div className="m-2 self-center border">
           <input
+            data-testid="userName"
             type="text p-1"
             onChange={(e) => {
               setUserName(e.target.value);

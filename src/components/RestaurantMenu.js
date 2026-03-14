@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
   );
   console.log(categories);
   return (
-    <div className="text-center">
+    <div data-items className="text-center">
       <h1 className="font-bold my-6 text-2xl">Roti Wala.com</h1>
       <p className="font-blod text-lg"></p>
       {categories.map((category, index) => (
